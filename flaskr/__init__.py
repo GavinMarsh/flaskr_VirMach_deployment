@@ -29,13 +29,13 @@ def create_app(test_config=None):
     def hello():
         return 'Hello, World!'
 
-    from . import db
+    from flaskr import db
     db.init_app(app)
 
-    from . import auth
+    from flaskr import auth
     app.register_blueprint(auth.bp)
 
-    from . import blog
+    from flaskr import blog
     app.register_blueprint(blog.bp)
     app.add_url_rule('/', endpoint='index')
 
