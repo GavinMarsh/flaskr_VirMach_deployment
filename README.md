@@ -43,6 +43,7 @@ static & templates folders are located.
 
 In the wsgi file write:
 
+    ## wsgi_file.py
     import sys
 
     # add your project directory to the sys.path
