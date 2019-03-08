@@ -1,35 +1,37 @@
 # flaskr
+Complete and working tutorial from Flasks official documentation page http://flask.pocoo.org/docs/1.0/tutorial/
+Have also included wsgi file details for remote deployment.
+
 
 ## Activating flask server:
-
-export FLASK_APP=flaskr
-export FLASK_ENV=development
-flask run
+    export FLASK_APP=flaskr
+    export FLASK_ENV=development
+    flask run
 
 
 ## local - Initialise the database
-flask init-db
+    flask init-db
 
 ## pythonanywhere - build & install
 Upload installation wheel file to files folder.
-$ mkvirtualenv flaskr --python=/usr/bin/python3.7
+    mkvirtualenv flaskr --python=/usr/bin/python3.7
 
-    commands for venv:
-    ## to activate the venv
-    $ workon flaskr
+commands for venv:
+    # to activate the venv
+    workon flaskr
 
-    ## to deativate the venv
-    $ deativate       
+    # to deativate the venv
+    deativate       
 
-$ workon flaskr
-$ pip install wheel
-$ pip install flaskr-1.0.0-py3-none-any.whl
+    workon flaskr
+    pip install wheel
+    pip install flaskr-1.0.0-py3-none-any.whl
 
-## activate database
-$ export FLASK_APP=flaskr
-$ flask init-db
+Activate database
+    export FLASK_APP=flaskr
+    flask init-db
 
-## set up web app and wsgi file
+Set up web app and wsgi file
 create a new file called run.py in the flaskr source code directory (same directory where the
 static & templates folders are located.
 
