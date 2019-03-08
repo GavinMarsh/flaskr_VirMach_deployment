@@ -33,6 +33,7 @@ $ flask init-db
 create a new file called run.py in the flaskr source code directory (same directory where the
 static & templates folders are located.
 
+    ## run.py
     import os
 
     from flaskr import create_app
@@ -42,6 +43,7 @@ static & templates folders are located.
 
 In the wsgi file write:
 
+    ## wsgi_file
     import sys
 
     # add your project directory to the sys.path
