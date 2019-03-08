@@ -43,18 +43,18 @@ static & templates folders are located.
 
 In the wsgi file write:
 
-    ## wsgi_file
     import sys
 
     # add your project directory to the sys.path
     project_home = u'/home/GMM/flaskr/'
     if project_home not in sys.path:
-    sys.path = [project_home] + sys.path
+        sys.path = [project_home] + sys.path
 
-    # import flask app but need to call it "application" for WSGI to work
-    from flaskr.run import app as application  # noqa
+    # You can't import a variable that is local to a function, so we need to call
+    # the function inside the application-factory to buid and return the app.
 
-$ ???
+    from flaskr import create_app
+    application = create_app()
 
 
 
