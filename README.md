@@ -31,17 +31,7 @@ Activate database
     export FLASK_APP=flaskr
     flask init-db
 
-Set up web app and wsgi file
-create a new file called run.py in the flaskr source code directory (same directory where the
-static & templates folders are located.
-
-    ## run.py
-    import os
-
-    from flaskr import create_app
-    from flask import Flask
-
-    app = create_app()
+Set up a new wsgi file
 
 In the wsgi file write:
 
