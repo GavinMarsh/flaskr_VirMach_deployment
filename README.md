@@ -17,16 +17,23 @@ Upload installation wheel file to files folder.
     mkvirtualenv flaskr --python=/usr/bin/python3.7
 
 commands for venv:
-    # to activate the venv
+    # to activate the venv in pythonanywhere, just type workon and the venv name.
     workon flaskr
-
+    
+    # to activate in bash
+    source venv/bin/activate
+    
     # to deativate the venv      
+    deactivate
 
-    workon flaskr
+## load Flask    
+    acitvate venv
+    
     pip install wheel
     python setup.py bdist_wheel
     export FLASK_APP=flaskr
     pip install flaskr-1.0.0-py3-none-any.whl
+
 Pip will install your project along with its dependencies.
 
 Since this is a different machine, you need to run init-db again to create the database in the instance folder.
