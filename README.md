@@ -47,7 +47,7 @@ You can use the following command to output a random secret key:
 Create the config.py file in the instance folder, which the factory will read from if it exists. Copy the generated value into it.
 
 venv/var/flaskr-instance/config.py
-SECRET_KEY = b'_5#y2L"F4Q8z\n\xec]/'
+    SECRET_KEY = b'_5#y2L"F4Q8z\n\xec]/'
 You can also set any other necessary configuration here, although SECRET_KEY is the only one needed for Flaskr.
 
 Set up a new wsgi file
