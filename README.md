@@ -20,16 +20,35 @@ commands for venv:
     # to activate the venv
     workon flaskr
 
-    # to deativate the venv
-    deativate       
+    # to deativate the venv      
 
     workon flaskr
     pip install wheel
+    python setup.py bdist_wheel
+    export FLASK_APP=flaskr
     pip install flaskr-1.0.0-py3-none-any.whl
+Pip will install your project along with its dependencies.
 
-Activate database
+Since this is a different machine, you need to run init-db again to create the database in the instance folder.
     export FLASK_APP=flaskr
     flask init-db
+
+When Flask detects that it’s installed (not in editable mode), it uses a different directory for the instance folder. You can find it at venv/var/flaskr-instance instead.
+
+Configure the Secret Key
+In the beginning of the tutorial that you gave a default value for SECRET_KEY. This should be changed to some random bytes in production. Otherwise, attackers could use the public 'dev' key to modify the session cookie, or anything else that uses the secret key.
+
+You can use the following command to output a random secret key:
+
+    python -c 'import os; print(os.urandom(16))'
+
+    b'_5#y2L"F4Q8z\n\xec]/'
+
+Create the config.py file in the instance folder, which the factory will read from if it exists. Copy the generated value into it.
+
+venv/var/flaskr-instance/config.py
+SECRET_KEY = b'_5#y2L"F4Q8z\n\xec]/'
+You can also set any other necessary configuration here, although SECRET_KEY is the only one needed for Flaskr.
 
 Set up a new wsgi file
 
