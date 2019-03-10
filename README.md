@@ -12,7 +12,7 @@ Have also included wsgi file details for remote deployment.
 ## local - Initialise the database
     flask init-db
 
-## pythonanywhere - build & install
+## Production server - build & install
 Upload installation wheel file to files folder.
     mkvirtualenv flaskr --python=/usr/bin/python3.7
 
@@ -35,7 +35,7 @@ Since this is a different machine, you need to run init-db again to create the d
 
 When Flask detects that it’s installed (not in editable mode), it uses a different directory for the instance folder. You can find it at venv/var/flaskr-instance instead.
 
-Configure the Secret Key
+### Configure the Secret Key
 In the beginning of the tutorial that you gave a default value for SECRET_KEY. This should be changed to some random bytes in production. Otherwise, attackers could use the public 'dev' key to modify the session cookie, or anything else that uses the secret key.
 
 You can use the following command to output a random secret key:
@@ -52,7 +52,7 @@ You can also set any other necessary configuration here, although SECRET_KEY is 
 
 Set up a new wsgi file
 
-In the wsgi file write:
+## çreate new wsgi file and write:
 
     ## wsgi_file.py
     import sys
