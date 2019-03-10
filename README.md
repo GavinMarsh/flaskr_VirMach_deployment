@@ -30,6 +30,7 @@ commands for venv:
 Pip will install your project along with its dependencies.
 
 Since this is a different machine, you need to run init-db again to create the database in the instance folder.
+    
     export FLASK_APP=flaskr
     flask init-db
 
