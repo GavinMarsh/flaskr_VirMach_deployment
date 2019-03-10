@@ -30,9 +30,9 @@ commands for venv:
     acitvate venv
     
     pip install wheel
-    python setup.py bdist_wheel
+    python setup.py bdist_wheel     # not sure why this is not working on Ubuntu 16.04?
     export FLASK_APP=flaskr
-    pip install flaskr-1.0.0-py3-none-any.whl
+    pip3 install flaskr-1.0.0-py3-none-any.whl
 
 Pip will install your project along with its dependencies.
 
