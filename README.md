@@ -80,3 +80,25 @@ Set up a new wsgi file
 
 TODO
 - check and see why pytest is not running? may have something to do with the file location of setup.cfg? or may have something to do with what directory you are in when you run $ pytest from the CLI ? http://flask.pocoo.org/docs/1.0/tutorial/tests/
+
+# Deployment on Apache2 server via wsgi
+create a sites.conf file in the folder /etc/apache2/sites-available/
+    <VirtualHost *:80>
+                ServerName 107.172.143.209
+                ServerAdmin admin@mywebsite.com
+                WSGIScriptAlias /flaskr /var/www/flaskr/flaskr.wsgi
+               Directory /var/www/reddit/reddit/>
+                    Order allow,deny
+                    Allow from all
+                </Directory>
+
+                WSGIScriptAlias /reddit /var/www/reddit/reddit.wsgi
+                <Directory /var/www/reddit/reddit/>
+                    Order allow,deny
+                    Allow from all
+                </Directory>
+
+                ErrorLog ${APACHE_LOG_DIR}/error.log
+                LogLevel info
+                CustomLog ${APACHE_LOG_DIR}/access.log combined
+    </VirtualHost>
