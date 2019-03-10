@@ -1,4 +1,5 @@
-## This wsgi works with virmach.com remote server Ubuntu 16.04 & with pythonanywhere.com
+## This wsgi works with virmach.com remote server Ubuntu 16.04
+## Can also work with pythonanywhere if you change the project_home folder to u'/home/GMM/flaskr/'
 
 import sys
 
