@@ -52,7 +52,7 @@ You can also set any other necessary configuration here, although SECRET_KEY is 
 
 Set up a new wsgi file
 
-## çreate new wsgi file and write:
+## create new wsgi file and write:
 
     ## wsgi_file.py
     import sys
