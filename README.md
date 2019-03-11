@@ -2,6 +2,7 @@
 Complete and working tutorial from Flasks official documentation page http://flask.pocoo.org/docs/1.0/tutorial/
 Have also included wsgi file details for remote deployment.
 
+# Mac local_machine deployment
 
 ## Activating flask server:
     export FLASK_APP=flaskr
@@ -9,7 +10,7 @@ Have also included wsgi file details for remote deployment.
     flask run
 
 
-## local - Initialise the database
+## Initialise the database
     flask init-db
 
 ## Pythonanywhere deployment - build & install
