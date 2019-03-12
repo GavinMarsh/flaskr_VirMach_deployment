@@ -13,7 +13,7 @@ Have also included wsgi file details for remote deployment.
 ## Initialise the database
     flask init-db
 
-## Pythonanywhere deployment - build & install
+# Pythonanywhere deployment - build & install
 Upload installation wheel file to files folder.
     mkvirtualenv flaskr --python=/usr/bin/python3.7
 
