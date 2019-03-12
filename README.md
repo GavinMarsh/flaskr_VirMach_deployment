@@ -175,6 +175,6 @@ You can also set any other necessary configuration here, although SECRET_KEY is 
 
 
 # TODO
-- Work out how to access a new db.
+- Work out how to access a new instance of the local sqlite built in python database or work out how to use a MongoDB cluster with the web-application.
 - check and see why pytest is not running? may have something to do with the file location of setup.cfg? or may have something to do with  what directory you are in when you run $ pytest from the CLI ? http://flask.pocoo.org/docs/1.0/tutorial/tests/
 
