@@ -4,14 +4,15 @@ Have also included wsgi file details for remote deployment.
 
 # Mac local_machine deployment
 
-## Activating flask server:
+### Activating flask server:
     export FLASK_APP=flaskr
     export FLASK_ENV=development
     flask run
 
 
-## Initialise the database
+### Initialise the database
     flask init-db
+
 
 # Pythonanywhere deployment - build & install
 Upload installation wheel file to files folder.
@@ -27,7 +28,7 @@ commands for venv:
     # to deativate the venv      
     deactivate
 
-## load Flask    
+### load Flask    
     acitvate venv
     
     pip install wheel
@@ -61,7 +62,7 @@ You can also set any other necessary configuration here, although SECRET_KEY is 
 
 Set up a new wsgi file
 
-## create new wsgi file and write:
+### create new wsgi file and write:
 
     ## wsgi_file.py
     import sys
@@ -76,6 +77,7 @@ Set up a new wsgi file
 
     from flaskr import create_app
     application = create_app()
+
 
 # VirMach remote Ubuntu 16.04, apache2 deployment
 /etc/apache2/sites-available/sites.wsgi file
@@ -129,6 +131,6 @@ Place each site on it's own port and include it's own WSGI daemon process, this 
 
     </VirtualHost>
 
-TODO
+# TODO
 - check and see why pytest is not running? may have something to do with the file location of setup.cfg? or may have something to do with what directory you are in when you run $ pytest from the CLI ? http://flask.pocoo.org/docs/1.0/tutorial/tests/
 
