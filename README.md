@@ -2,6 +2,12 @@
 Complete and working tutorial from Flasks official documentation page http://flask.pocoo.org/docs/1.0/tutorial/
 Have also included wsgi file details for remote deployment.
 
+flaskr is a flask web-application wich has a model-view-controller layout:
+
+Model       = MongoDB
+View        = Jinja2
+Controller  = Flask/apache2/wsgi
+
 # Mac local_machine deployment
 
 ### Activating flask server:
@@ -12,7 +18,6 @@ Have also included wsgi file details for remote deployment.
 
 ### Initialise the database
     flask init-db
-
 
 # Pythonanywhere deployment - build & install
 Upload installation wheel file to files folder.
@@ -79,7 +84,7 @@ Set up a new wsgi file
     application = create_app()
 
 
-# VirMach remote Ubuntu 16.04, apache2 deployment
+# VirMach Ubuntu 16.04, apache2/wsgi/flask deployment
 /etc/apache2/sites-available/sites.wsgi file
 Place each site on it's own port and include it's own WSGI daemon process, this will prevent any data leakage between each site.
     
