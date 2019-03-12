@@ -88,9 +88,8 @@ venv/var/flaskr-instance/config.py
     SECRET_KEY = b'_5#y2L"F4Q8z\n\xec]/'
 You can also set any other necessary configuration here, although SECRET_KEY is the only one needed for Flaskr.
 
-Set up a new wsgi file
 
-### create new wsgi file and write:
+### create new wsgi file:
 
     ## wsgi_file.py
     import sys
@@ -158,6 +157,22 @@ Place each site on it's own port and include it's own WSGI daemon process, this 
         CustomLog ${APACHE_LOG_DIR}/access.log combined
 
     </VirtualHost>
+
+### Configure the Secret Key
+In the beginning of the tutorial that you gave a default value for SECRET_KEY. This should be changed to some random bytes in production. Otherwise, attackers could use the public 'dev' key to modify the session cookie, or anything else that uses the secret key.
+
+You can use the following command to output a random secret key:
+
+    python -c 'import os; print(os.urandom(16))'
+
+    b'_5#y2L"F4Q8z\n\xec]/'
+
+Create the config.py file in the instance folder, which the factory will read from if it exists. Copy the generated value into it.
+
+venv/var/flaskr-instance/config.py
+    SECRET_KEY = b'_5#y2L"F4Q8z\n\xec]/'
+You can also set any other necessary configuration here, although SECRET_KEY is the only one needed for Flaskr.
+
 
 # TODO
 - Work out how to access a new db.
