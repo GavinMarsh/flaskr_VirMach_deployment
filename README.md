@@ -132,5 +132,6 @@ Place each site on it's own port and include it's own WSGI daemon process, this 
     </VirtualHost>
 
 # TODO
-- check and see why pytest is not running? may have something to do with the file location of setup.cfg? or may have something to do with what directory you are in when you run $ pytest from the CLI ? http://flask.pocoo.org/docs/1.0/tutorial/tests/
+- Work out how to access a new db.
+- check and see why pytest is not running? may have something to do with the file location of setup.cfg? or may have something to do with  what directory you are in when you run $ pytest from the CLI ? http://flask.pocoo.org/docs/1.0/tutorial/tests/
 
