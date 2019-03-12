@@ -5,10 +5,12 @@ Have also included wsgi file details for remote deployment.
 flaskr is a flask web-application wich has a model-view-controller layout:
 
 Model       = MongoDB
+
 View        = Jinja2
+
 Controller  = Flask/apache2/wsgi
 
-# Mac local_machine deployment
+# local-mac apache2/wsgi-express/flask deployment
 
 ### Activating flask server:
     export FLASK_APP=flaskr
@@ -18,6 +20,27 @@ Controller  = Flask/apache2/wsgi
 
 ### Initialise the database
     flask init-db
+
+
+### wsgi-express file
+       
+    import sys
+
+    # add your project directory to the sys.path
+    project_home = u'/var/www/reddit/'
+    if project_home not in sys.path:
+    sys.path = [project_home] + sys.path
+
+    # You can't import a variable that is local to a function, instead call
+    # the function inside the application-factory to buid and return the app.
+    from __init__ import create_app
+   
+    application = create_app('config.DevelopmentConfig')
+    
+    application.secret_key = 'Add your secret key'
+
+To run application, navigate to the source files directory reddit/reddit and enter into the cli: 
+     mod_wsgi-express start-server local-mac.wsgi
 
 # Pythonanywhere deployment - build & install
 Upload installation wheel file to files folder.
