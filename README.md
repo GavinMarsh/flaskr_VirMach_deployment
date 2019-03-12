@@ -79,36 +79,54 @@ Set up a new wsgi file
 
 # VirMach remote Ubuntu 16.04, apache2 deployment
 /etc/apache2/sites-available/sites.wsgi file
+Place each site on it's own port and include it's own WSGI daemon process, this will prevent any data leakage between each site.
+    
+    Listen 80
 
     <VirtualHost *:80>
-                ServerName 107.172.143.209
-                ServerAdmin admin@mywebsite.com
-                WSGIScriptAlias /flaskr /var/www/flaskr/flaskr.wsgi
-                <Directory /var/www/flaskr/flaskr/>
-                    Order allow,deny
-                    Allow from all
-                </Directory>
-                Alias /static /var/www/flaskr/flaskr/static
-                <Directory /var/www/flaskr/flaskr/static/>
-                        Order allow,deny
-                        Allow from all
-                </Directory>
+        WSGIDaemonProcess reddit display-name=%{GROUP}
+        WSGIProcessGroup reddit
 
-                WSGIScriptAlias /reddit /var/www/reddit/reddit.wsgi
-                <Directory /var/www/reddit/reddit/>
-                    Order allow,deny
-                    Allow from all
-                </Directory>
-                 Alias /static1 /var/www/reddit/reddit/static
-                <Directory /var/www/reddit/reddit/static/>
-                        Order allow,deny
-                        Allow from all
-                </Directory>
+        ServerName 107.172.143.209
+        WSGIScriptAlias /  /var/www/reddit/reddit.wsgi
+        <Directory /var/www/reddit/reddit/>
+                Order allow,deny
+                Allow from all
+        </Directory>
+        Alias /static /var/www/reddit/reddit/static
+        <Directory /var/www/reddit/reddit/static/>
+                Order allow,deny
+                Allow from all
+        </Directory>
 
+        ErrorLog ${APACHE_LOG_DIR}/error.log
+        LogLevel info
+        CustomLog ${APACHE_LOG_DIR}/access.log combined
 
-                ErrorLog ${APACHE_LOG_DIR}/error.log
-                LogLevel info
-                CustomLog ${APACHE_LOG_DIR}/access.log combined
+    </VirtualHost>
+
+    Listen 8080
+
+    <VirtualHost *:8080>
+        WSGIDaemonProcess reddit display-name=%{GROUP}
+        WSGIProcessGroup reddit
+
+        ServerName 107.172.143.209
+        WSGIScriptAlias /  /var/www/reddit/reddit.wsgi
+        <Directory /var/www/reddit/reddit/>
+                Order allow,deny
+                Allow from all
+        </Directory>
+        Alias /static /var/www/reddit/reddit/static
+        <Directory /var/www/reddit/reddit/static/>
+                Order allow,deny
+                Allow from all
+        </Directory>
+
+        ErrorLog ${APACHE_LOG_DIR}/error.log
+        LogLevel info
+        CustomLog ${APACHE_LOG_DIR}/access.log combined
+
     </VirtualHost>
 
 TODO
