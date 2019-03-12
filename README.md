@@ -110,7 +110,7 @@ Place each site on it's own port and include it's own WSGI daemon process, this 
     Listen 8080
 
     <VirtualHost *:8080>
-        WSGIDaemonProcess reddit display-name=%{GROUP}
+        WSGIDaemonProcess reddit display-name=%{GROUP} 
         WSGIProcessGroup reddit
 
         ServerName 107.172.143.209
